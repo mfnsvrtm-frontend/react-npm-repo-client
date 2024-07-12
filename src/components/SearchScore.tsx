@@ -24,8 +24,8 @@ const SearchScore = ({ score }: SearchScoreProps): React.ReactNode => {
 
   return (
     <Box display='flex' flexDir='column' gap={1.5}>
-      {data.map(([value, color]) => (
-        <CircularProgress thickness={60} size={6} value={value * 100} color={color} />
+      {data.map(([value, color], id) => (
+        <CircularProgress key={id} thickness={60} size={6} value={value * 100} color={color} />
       ))}
       <Box flexGrow='1' w='100%' bg={bgStyle}></Box>
     </Box>

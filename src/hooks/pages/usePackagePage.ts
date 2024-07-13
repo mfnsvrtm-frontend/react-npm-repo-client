@@ -10,6 +10,7 @@ const usePackagePage = () => {
   });
 
   return {
+    name,
     data,
     isLoading
   };

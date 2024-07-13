@@ -1,7 +1,8 @@
-import { Box, Tag, Text } from '@chakra-ui/react';
+import { Box, Text } from '@chakra-ui/react';
 import { SearchResult as SearchResultObject } from 'query-registry';
-import { age } from '../utils';
 import SearchScore from './SearchScore';
+import PackageInfo from './PackageInfo';
+import PackageKeywords from './PackageKeywords';
 
 interface SearchResultProps {
   result: SearchResultObject;
@@ -13,27 +14,12 @@ const SearchResult = ({ result }: SearchResultProps): React.ReactNode => {
   return (
     <Box display='flex' gap={3} alignItems='stretch' justifyContent='start' p={2.5} bgColor='white' borderRadius={5}>
       <SearchScore score={score} />
-      <Box display='flex' flexDirection='column' gap={2.5}>
-        <Text fontWeight='700' fontSize='20px' lineHeight='1.4'>{data.name}</Text>
-        {data.description && <Text fontWeight='300' color='blackAlpha.700'>{data.description}</Text>}
-        {data.keywords && (
-          <Box display='flex' flexWrap='wrap' gap={2}>
-            {data.keywords && (
-              data.keywords?.slice(0, 10).map(keyword => (
-                <Tag key={keyword} color='gray.600' fontWeight='550' fontSize='12px' whiteSpace='nowrap'>{keyword}</Tag>
-              ))
-            )}
-          </Box>
-        )}
-
-        <Box display='flex' gap={1.5}>
-          {data.author && <Text color='blackAlpha.700'>{data.author?.name}</Text>}
-          <Text fontWeight='300' color='blackAlpha.600'>{data.author ? 'p' : 'P'}ublished</Text>
-          <Text fontWeight='300' color='blackAlpha.600'>{data.version}</Text>
-          <Text fontWeight='300' color='blackAlpha.600'>{age(data.date)}</Text>
-        </Box>
+      <Box display='flex' flexDirection='column' gap={3} lineHeight='1'>
+        <Text fontWeight='700' fontSize='20px'>{data.name}</Text>
+        {data.description && <Text noOfLines={2} fontWeight='300' color='blackAlpha.700'>{data.description}</Text>}
+        {data.keywords && <PackageKeywords keywords={data.keywords} limit={10} />}
+        <PackageInfo version={data.version} author={data.author} date={data.date} />
       </Box>
-
     </Box>
   );
 };

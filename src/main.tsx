@@ -8,6 +8,7 @@ import Package from './routes/Package';
 
 import '@fontsource-variable/inter';
 import '@fontsource-variable/roboto-mono';
+import '@fontsource/bebas-neue';
 
 const client = new QueryClient();
 

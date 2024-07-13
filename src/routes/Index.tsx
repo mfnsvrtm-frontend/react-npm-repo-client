@@ -32,8 +32,8 @@ const Index = (): React.ReactNode => {
           : (
             <List spacing={8}>
               {searchResults?.objects.map(object => (
-                <ListItem>
-                  <Link key={object.package.name} to={`/packages/${object.package.name}`}>
+                <ListItem key={object.package.name}>
+                  <Link to={`/packages/${object.package.name}`}>
                     <SearchResult result={object} />
                   </Link>
                 </ListItem>

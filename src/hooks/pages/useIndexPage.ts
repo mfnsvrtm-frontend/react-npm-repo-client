@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { searchPackages } from 'query-registry';
 import { useEffect, useState } from 'react';
-import { SortKind, isSortKind } from '../../components/SortSelect';
+import { SortKind, isSortKind } from '../../components/InfluenceSelect';
 import { useSearchParams } from 'react-router-dom';
 import { updateSearchParams } from '../../utils';
 import useDebounced from '../useDebounced';

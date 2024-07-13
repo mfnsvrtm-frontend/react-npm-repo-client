@@ -1,7 +1,7 @@
 import { SearchIcon } from '@chakra-ui/icons';
 import { Box, Container, Input, InputGroup, InputRightElement, List, ListItem } from '@chakra-ui/react';
 import SearchResult from '../components/SearchResult';
-import SortSelect from '../components/SortSelect';
+import InfluenceSelect from '../components/InfluenceSelect';
 import { Link } from 'react-router-dom';
 import LoadingBox from '../components/LoadingBox';
 import useIndexPage from '../hooks/pages/useIndexPage';
@@ -26,7 +26,7 @@ const Index = (): React.ReactNode => {
             <SearchIcon />
           </InputRightElement>
         </InputGroup>
-        <SortSelect selected={selected} setSelected={setSelected} />
+        <InfluenceSelect selected={selected} setSelected={setSelected} />
         {isLoading
           ? <LoadingBox flexGrow={1} />
           : (

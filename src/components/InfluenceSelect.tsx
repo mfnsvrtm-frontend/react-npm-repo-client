@@ -7,12 +7,12 @@ export const isSortKind = (kind: string | null): kind is SortKind => {
   return sortKinds.includes(kind as SortKind);
 };
 
-interface SortSelectProps {
+interface InfluenceSelectProps {
   selected: SortKind;
   setSelected: (selected: SortKind) => void;
 }
 
-const SortSelect = ({ selected, setSelected }: SortSelectProps): React.ReactNode => {
+const InfluenceSelect = ({ selected, setSelected }: InfluenceSelectProps): React.ReactNode => {
   const tags: [SortKind, string][] = [
     ['popularity', 'cyan.400'],
     ['quality', 'purple.400'],
@@ -29,7 +29,7 @@ const SortSelect = ({ selected, setSelected }: SortSelectProps): React.ReactNode
         p={1}
         mr={1}
       >
-        sorting
+        influence
       </Text>
       {tags.map(([name, color]) => (
         <Tag
@@ -53,4 +53,4 @@ const SortSelect = ({ selected, setSelected }: SortSelectProps): React.ReactNode
   );
 };
 
-export default SortSelect;
+export default InfluenceSelect;

@@ -18,7 +18,8 @@ const router = createBrowserRouter(
       <Route path='/' element={<Index />} />
       <Route path='/packages/*' element={<Package />} />
     </>
-  )
+  ),
+  { basename: import.meta.env.BASE_URL }
 );
 
 const primaryFont = 'Inter Variable';

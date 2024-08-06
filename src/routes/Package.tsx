@@ -8,15 +8,13 @@ import SectionDivider from '../components/SectionDivider';
 const Package = (): React.ReactNode => {
   const { name, data, isLoading } = usePackagePage();
 
+  if (isLoading)
+    return <LoadingBox minH='100vh' />;
+
   if (!data) {
     console.error(`Couldn't load package ${name}`);
     return null;
   }
-
-  console.log('here', isLoading);
-
-  if (isLoading)
-    return <LoadingBox minH='100vh' />;
 
   return (
     <Container maxW='container.md' p={5} minH='100vh' display='grid' gap={5}>
